@@ -1,5 +1,5 @@
 ## Coriolan
-
+This software takes two inputs: a folder containing genomes (in FASTA format) and a file with reference proteins (also in FASTA format). The reference proteins are queried via tBLASTn against the genome sequences to identify orthologs, which are then aligned with Muscle, concatenated with a GToTree helper script, and used to generate a Newick-formatted phylogenomic tree using FastTree.
 
 ### Installation (Conda required):
 
