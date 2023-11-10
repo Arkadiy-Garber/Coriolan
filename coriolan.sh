@@ -3,10 +3,10 @@
 function usage() {
     cat <<USAGE
 
-    Usage: $0 [-f ref] [-t thr] [-s sys] [-o out] [-n num]
+    Usage: $0 [-d dir] [-r ref] [-x ext] [-o out] [-t thr]
 
     Options:
-        -d, --dir:   directory with FASTA files (nucleotide)
+        -d, --dir:      directory with FASTA files (nucleotide)
         -r, --ref:      reference proteins in FASTA format
         -o, --out:      output folder name
         -x, --ext:      filename extension for genome FASTA files
@@ -71,6 +71,8 @@ fi
 mkdir -p ${OUT}
 mkdir -p ${OUT}/alignments
 
+NUM=$(ls -1 ${DIR}/*${EXT} | wc -l)
+
 for i in ${DIR}/*${EXT}; do
     echo ${i}
     autodetect_blast_db.sh -f ${i}
@@ -82,8 +84,10 @@ NUM=$(ls -1 ${DIR}/*${EXT} | wc -l)
 coregene.py -b ${DIR} -f ${REF} -o ${OUT} -n ${NUM}
 
 for i in ${OUT}/alignments/*faa; do
-    muscle -align ${i} -output ${i%.*}.fa
+    muscle -in ${i} -out ${i%.*}.fa
 done
+
+mkdir ${OUT}/alignments
 
 gtt-cat-alignments-mod.py -t ${OUT}/alignments -o ${OUT}
 
