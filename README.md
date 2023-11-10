@@ -1,7 +1,7 @@
 ## Coriolan
 
 
-### Installation (from ~/bin):
+### Installation (Conda required):
 
     git clone https://github.com/Arkadiy-Garber/Coriolan.git
     cd Coriolan
