@@ -159,7 +159,7 @@ for i in blastDir:
 
 count = 0
 for i in blastDict.keys():
-    if len(blastDict[i]) >= int(args.n)+1:
+    if len(blastDict[i]) >= int(args.n):
         out = open("%s/alignments/%s.faa" % (args.o, i), "w")
         count += 1
         for j in blastDict[i]:
