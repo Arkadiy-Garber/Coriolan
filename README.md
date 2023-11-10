@@ -6,7 +6,7 @@
     git clone https://github.com/Arkadiy-Garber/Coriolan.git
     cd Coriolan
     bash install.sh
-    conda activate gtotree
+    conda activate coriolan
 
 ### Quick-start
 
