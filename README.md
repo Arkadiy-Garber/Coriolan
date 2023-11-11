@@ -1,5 +1,5 @@
 ## Coriolan
-This software takes two inputs:
+This software requires two inputs:
  - a folder containing genomes (in FASTA format)
  - a file with reference proteins (also in FASTA format)
 
